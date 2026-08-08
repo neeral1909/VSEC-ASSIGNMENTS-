@@ -1,0 +1,31 @@
+Understanding Git Workflow Fundamentals
+When working with Git, code changes move through three local states before reaching a remote repository like GitHub:
+
+Working Directory: The actual files on your system where you write code or add documents.
+
+Staging Area (Index): A buffer area where Git organizes and prepares files before saving them into history.
+
+Local Repository (.git folder): The internal database where Git permanently stores snapshot commits on your local machine.
+
+Remote Repository (GitHub): The online version of your repository where team members or backup services access your commits.
+
+Core Git Operations & Theory
+1. Staging (git add .)
+Theory: When you create or modify files, Git detects them as untracked or modified. Running git add copies these changes from your Working Directory into the Staging Area.
+
+Why it matters: It lets you selectively choose which changes are ready to be packaged together into a single commit rather than forcing every unsaved edit into history at once.
+
+2. Committing (git commit -m "message")
+Theory: A commit takes a snapshot of the staged files and writes it to your local repository as a unique, immutable object tagged with a hash ID, author details, and timestamp.
+
+Why it matters: It builds a permanent version history. If something breaks later, you can inspect or revert back to any previous commit point.
+
+3. Pushing (git push)
+Theory: git push transfers commits from your local repository branch (e.g., main) to the matching branch on your remote host (origin/main).
+
+Why it matters: It keeps your remote GitHub repository updated so your code is backed up and accessible to collaborators.
+
+4. Configuration (git config)
+Theory: Git records user identity (name and email) on every commit object to track who made specific changes.
+
+Global vs. Local: Setting git config --global applies your identity system-wide for all repositories, whereas setting git config without --global overrides settings only within the current project folder.
