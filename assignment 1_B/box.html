@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My 5th Assignment</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+
+            font-family: Arial, sans-serif;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            color: #3B2924;
+
+            /* Aesthetic gradient background */
+            background:
+                radial-gradient(
+                    circle at 15% 20%,
+                    #F8D9CB 0%,
+                    transparent 30%
+                ),
+                radial-gradient(
+                    circle at 85% 80%,
+                    #E8C8B8 0%,
+                    transparent 30%
+                ),
+                linear-gradient(
+                    135deg,
+                    #F5EFE6,
+                    #EFE1D5
+                );
+        }
+
+
+        /* Heading */
+
+        h1 {
+            font-size: 34px;
+            margin: 0 0 8px;
+
+            color: #3B2924;
+
+            letter-spacing: 1px;
+        }
+
+        p {
+            margin: 0;
+
+            font-size: 17px;
+
+            color: #806C63;
+
+            letter-spacing: 0.5px;
+        }
+
+
+        /* Main area */
+
+        .scene {
+            width: 360px;
+            height: 360px;
+
+            position: relative;
+
+            margin-top: 45px;
+        }
+
+
+        /* Hide checkbox */
+
+        input {
+            display: none;
+        }
+
+
+        /* Common box style */
+
+        .box {
+            width: 160px;
+            height: 160px;
+
+            position: absolute;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background: linear-gradient(
+                135deg,
+                #D58A72,
+                #B9654D
+            );
+
+            color: #FFF8F2;
+
+            font-size: 25px;
+            font-weight: bold;
+
+            cursor: pointer;
+
+            box-shadow:
+                0 10px 25px rgba(59, 41, 36, 0.18);
+
+            transition:
+                transform 0.9s cubic-bezier(.68,-0.55,.27,1.55),
+                box-shadow 0.4s ease;
+
+            z-index: 2;
+        }
+
+
+        /* Individual starting positions */
+
+        .box1 {
+            top: 20px;
+            left: 20px;
+
+            border-radius: 22px 0 0 0;
+        }
+
+        .box2 {
+            top: 20px;
+            right: 20px;
+
+            border-radius: 0 22px 0 0;
+        }
+
+        .box3 {
+            bottom: 20px;
+            left: 20px;
+
+            border-radius: 0 0 0 22px;
+        }
+
+        .box4 {
+            bottom: 20px;
+            right: 20px;
+
+            border-radius: 0 0 22px 0;
+        }
+
+
+        /* Hover */
+
+        .box:hover {
+            box-shadow:
+                0 15px 35px rgba(59, 41, 36, 0.25);
+        }
+
+
+        /* -------------------------------- */
+        /* SEPARATE + ROTATE */
+        /* -------------------------------- */
+
+        input:checked ~ .box1 {
+
+            transform:
+                translate(-90px, -90px)
+                rotate(-45deg);
+        }
+
+
+        input:checked ~ .box2 {
+
+            transform:
+                translate(90px, -90px)
+                rotate(45deg);
+        }
+
+
+        input:checked ~ .box3 {
+
+            transform:
+                translate(-90px, 90px)
+                rotate(-45deg);
+        }
+
+
+        input:checked ~ .box4 {
+
+            transform:
+                translate(90px, 90px)
+                rotate(45deg);
+        }
+
+
+        /* -------------------------------- */
+        /* CENTER MESSAGE */
+        /* -------------------------------- */
+
+        .message {
+
+            position: absolute;
+
+            top: 50%;
+            left: 50%;
+
+            transform:
+                translate(-50%, -50%)
+                scale(0);
+
+            width: 180px;
+
+            padding: 22px 15px;
+
+            text-align: center;
+
+            background: rgba(255, 248, 242, 0.92);
+
+            border: 1px solid rgba(201, 123, 99, 0.3);
+
+            border-radius: 18px;
+
+            color: #8A4F3D;
+
+            font-size: 19px;
+            font-weight: bold;
+
+            line-height: 1.4;
+
+            box-shadow:
+                0 10px 35px rgba(59, 41, 36, 0.2);
+
+            backdrop-filter: blur(8px);
+
+            transition:
+                transform 0.6s ease 0.35s,
+                opacity 0.5s ease 0.35s;
+
+            opacity: 0;
+
+            z-index: 10;
+        }
+
+
+        /* Show message */
+
+        input:checked ~ .message {
+
+            transform:
+                translate(-50%, -50%)
+                scale(1);
+
+            opacity: 1;
+        }
+
+
+        /* Message decoration */
+
+        .message span {
+
+            display: block;
+
+            margin-top: 8px;
+
+            font-size: 13px;
+
+            font-weight: normal;
+
+            color: #A77A6B;
+        }
+
+
+    </style>
+</head>
+
+
+<body>
+
+
+    <h1>Welcome to My 5th Assignment ✦</h1>
+
+    <p>Click the boxes to reveal the message</p>
+
+
+    <div class="scene">
+
+
+        <!-- Hidden checkbox -->
+
+        <input type="checkbox" id="open">
+
+
+        <!-- Four boxes -->
+
+        <label for="open" class="box box1">
+            01
+        </label>
+
+
+        <label for="open" class="box box2">
+            02
+        </label>
+
+
+        <label for="open" class="box box3">
+            03
+        </label>
+
+
+        <label for="open" class="box box4">
+            04
+        </label>
+
+
+        <!-- Center message -->
+
+        <div class="message">
+
+            ✦ Welcome ✦
+
+            <span>
+                Thank you for exploring!
+            </span>
+
+        </div>
+
+
+    </div>
+
+
+</body>
+</html>
